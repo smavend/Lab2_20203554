@@ -52,10 +52,13 @@ public class LoginActivity extends AppCompatActivity {
             String apellido = binding.apellido.getEditText().getText().toString();
             String correo = binding.correo.getEditText().getText().toString();
             String contrasena = binding.contrasena.getEditText().getText().toString();
-            if (binding.checkBox.isChecked() && nombre != null && apellido != null && correo != null && contrasena != null){
+            if (binding.checkBox.isChecked() && nombre != null && apellido != null && correo != null && contrasena != null && tengoInternet()){
                 startActivity(intent);
             }
-            else {
+            else if(!tengoInternet()){
+                Snackbar.make(binding.getRoot(), "No puedes continuar si no cuentas con internet.", Snackbar.LENGTH_SHORT)
+                        .show();
+            }else {
                 Snackbar.make(binding.getRoot(), "Llene todos los campos y checkbox.", Snackbar.LENGTH_SHORT)
                         .show();
             }
