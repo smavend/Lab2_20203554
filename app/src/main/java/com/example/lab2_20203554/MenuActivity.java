@@ -25,12 +25,17 @@ public class MenuActivity extends AppCompatActivity {
 
         Results result = (Results) intent.getSerializableExtra("result");
 
-        Snackbar.make(binding.getRoot(), "¡"+result.getResults().get(0).getName().getFirst()+", bienvenida al menú pricipal!", Snackbar.LENGTH_SHORT)
+        Snackbar.make(binding.getRoot(), "¡"+result.getResults().get(0).getName().getFirst()+", bienvenid@ al menú pricipal!", Snackbar.LENGTH_SHORT)
                 .show();
 
         binding.fullname.setText(result.getResults().get(0).getName().getFirst().toString() + " " +result.getResults().get(0).getName().getLast().toString());
         binding.username.setText(result.getResults().get(0).getLogin().getUsername());
         ImageView imageView = binding.perfil;
         Picasso.with(this).load(result.getResults().get(0).getPicture().getLarge()).into(imageView);
+
+        binding.contador.setOnClickListener(view -> {
+            Intent intent1 = new Intent(this, ContadorActivity.class);
+            startActivity(intent1);
+        });
     }
 }

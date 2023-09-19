@@ -48,11 +48,11 @@ public class LoginActivity extends AppCompatActivity {
                 .create(CredentialsService.class);
         fetchWebServiceData();
         binding.button.setOnClickListener(view -> {
-            String nombre = binding.nombre.getEditText().getText().toString();
-            String apellido = binding.apellido.getEditText().getText().toString();
-            String correo = binding.correo.getEditText().getText().toString();
-            String contrasena = binding.contrasena.getEditText().getText().toString();
-            if (binding.checkBox.isChecked() && nombre != null && apellido != null && correo != null && contrasena != null && tengoInternet()){
+            String nombre = binding.nombre.getEditText().getText().toString().trim();
+            String apellido = binding.apellido.getEditText().getText().toString().trim();
+            String correo = binding.correo.getEditText().getText().toString().trim();
+            String contrasena = binding.contrasena.getEditText().getText().toString().trim();
+            if (binding.checkBox.isChecked() && nombre.length()!=0 && apellido.length()!=0 && correo.length()!=0 && contrasena.length()!=0 && tengoInternet()){
                 startActivity(intent);
             }
             else if(!tengoInternet()){
