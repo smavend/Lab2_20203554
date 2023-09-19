@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.example.lab2_20203554.databinding.ActivityMenuBinding;
 import com.example.lab2_20203554.entity.Results;
+import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
 public class MenuActivity extends AppCompatActivity {
@@ -23,6 +24,9 @@ public class MenuActivity extends AppCompatActivity {
 
 
         Results result = (Results) intent.getSerializableExtra("result");
+
+        Snackbar.make(binding.getRoot(), "¡"+result.getResults().get(0).getName().getFirst()+", bienvenida al menú pricipal!", Snackbar.LENGTH_SHORT)
+                .show();
 
         binding.fullname.setText(result.getResults().get(0).getName().getFirst().toString() + " " +result.getResults().get(0).getName().getLast().toString());
         binding.username.setText(result.getResults().get(0).getLogin().getUsername());

@@ -16,6 +16,7 @@ import com.example.lab2_20203554.databinding.ActivityLoginBinding;
 import com.example.lab2_20203554.entity.Profile;
 import com.example.lab2_20203554.entity.Results;
 import com.example.lab2_20203554.services.CredentialsService;
+import com.google.android.material.snackbar.Snackbar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +36,9 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Snackbar.make(binding.getRoot(), "Vista de registro", Snackbar.LENGTH_SHORT)
+                .show();
+
         intent = new Intent(this, MenuActivity.class);
 
         credentialsService = new Retrofit.Builder()
@@ -52,7 +56,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             else {
-                Toast.makeText(this, "Llene todos los campos y checkbox", Toast.LENGTH_SHORT).show();
+                Snackbar.make(binding.getRoot(), "Llene todos los campos y checkbox.", Snackbar.LENGTH_SHORT)
+                        .show();
             }
         });
 
