@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Lab2_20203554"
         tools:targetApi="31">
         <activity
+            android:name=".MenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

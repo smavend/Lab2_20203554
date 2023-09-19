@@ -1,9 +1,12 @@
 package com.example.lab2_20203554.entity;
 
-public class Profile {
+import java.io.Serializable;
+
+public class Profile implements Serializable {
     private Name name;
     private Login login;
     private String email;
+    private Picture picture;
 
     public Name getName() {
         return name;
@@ -27,5 +30,13 @@ public class Profile {
 
     public void setCorreo(String correo) {
         this.email = correo;
+    }
+
+    public Picture getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Picture picture) {
+        this.picture = picture;
     }
 }

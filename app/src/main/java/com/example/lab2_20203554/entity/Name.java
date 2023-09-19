@@ -1,6 +1,8 @@
 package com.example.lab2_20203554.entity;
 
-public class Name {
+import java.io.Serializable;
+
+public class Name implements Serializable {
     private String last;
     private String first;
 
